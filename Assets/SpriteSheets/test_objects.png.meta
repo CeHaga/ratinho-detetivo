@@ -183,6 +183,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1351,6 +1352,59 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      test_objects_4: -2376080009655161432
+      test_objects_29: -2540066358905125348
+      test_objects_6: 3082007551351092889
+      test_objects_51: -6424989702984168505
+      test_objects_7: 3049563652124574965
+      door_closed: 8018498941278317564
+      test_objects_38: -4335686923562197612
+      test_objects_5: -5805511796734976036
+      box_1: 3189655642219092308
+      test_objects_46: -5684107055205346073
+      test_objects_8: -8378684407996941098
+      test_objects_33: 35461084605983425
+      chest_opened: -8812294627183389958
+      test_objects_12: -7659435735859715381
+      test_objects_35: -6001199555467524278
+      test_objects_13: -5499415389727278528
+      test_objects_42: 2226422104272891506
+      test_objects_28: -8932006473200352596
+      chest_closed: 1428053534509114903
+      test_objects_15: -6014866387163065770
+      test_objects_45: -8782898920505900489
+      test_objects_39: -1291225659203775172
+      test_objects_47: 363048123239960553
+      test_objects_24: 5524317623956408843
+      test_objects_19: 722389483731745107
+      test_objects_50: -8214305097625141933
+      test_objects_18: -7656281640780572881
+      test_objects_31: 320307959118494681
+      test_objects_16: 637965288767901835
+      test_objects_21: -5340738571263233932
+      test_objects_44: -5131960659086528296
+      test_objects_34: -5363179472695183232
+      test_objects_3: -6120324446935094212
+      test_objects_27: 7628882450265648407
+      test_objects_36: 3552306020880899584
+      test_objects_41: 2131273127503963356
+      test_objects_32: 7260279921285654724
+      test_objects_37: 2769391547940420036
+      test_objects_0: -4710381063606818182
+      door_opened: -7336281198259206279
+      test_objects_48: 3200774905789091126
+      box_0: 3122463176460134921
+      test_objects_49: -8145036149874358673
+      test_objects_52: 6232878939924259252
+      test_objects_43: -7375923863018414600
+      test_objects_30: 8633426377040712731
+      test_objects_20: -5309546632472200630
+      box_2: 887990695209616461
+      test_objects_40: 7347028317652309052
+      test_objects_17: -8773164190677425301
+      test_objects_14: -6999475891360238841
+      test_objects_26: 5356877332781048081
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

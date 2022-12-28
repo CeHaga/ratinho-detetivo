@@ -16,3 +16,6 @@ MonoBehaviour:
   texto: Ola, eu sou a Barata !
   proximoDialogo: {fileID: 11400000, guid: 592d17d962215644eb376b370d78df66, type: 2}
   opcoes: []
+  hasDiaryEntry: 1
+  diaryEntryName: "Introdu\xE7\xE3o Barata"
+  diaryEntryHint: "Ser\xE1 que esse \xE9 mesmo seu nome?"

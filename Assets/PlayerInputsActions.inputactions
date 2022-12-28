@@ -11,7 +11,8 @@
                     "id": "b5d91502-474e-4124-87e8-be2c69252efb",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Interact",
@@ -19,7 +20,17 @@
                     "id": "93646a00-4f25-4ff5-9f15-e1644f79ddc8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Diary",
+                    "type": "Button",
+                    "id": "9a5f1582-a206-4f83-9b38-bd59a400b287",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -86,6 +97,17 @@
                     "processors": "",
                     "groups": "Keyboard and Mouse",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0287dc70-71c0-40aa-9541-a5ece527f068",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Diary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

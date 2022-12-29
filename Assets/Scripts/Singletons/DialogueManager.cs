@@ -48,7 +48,12 @@ public sealed class DialogueManager : MonoBehaviour {
 
 	public void NextLine() {
 		if(currentDialogue.hasDiaryEntry) {
-			DiaryEntry entry = new DiaryEntry(currentDialogue.diaryEntryName, currentDialogue.texto, currentDialogue.diaryEntryHint);
+			DiaryEntry entry = new DiaryEntry(
+				currentDialogue.diaryEntryName,
+				currentDialogue.texto,
+				currentDialogue.diaryEntryHint,
+				DiaryEntryType.DIALOG
+			);
 			OnDiaryEntryAdded.Invoke(entry);
 		}
 		if(currentDialogue.opcoes.Count > 0) {

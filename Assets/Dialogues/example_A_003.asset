@@ -15,3 +15,8 @@ MonoBehaviour:
   personagem: {fileID: 11400000, guid: bedb83397cf098147acf50cd1aec5936, type: 2}
   texto: "Nossa que legal ! Eu me chamo Barata, moro aqui desde que nasci. Sempre
     que quiser conversar, voce pode me encontrar perto daquela \xE1rvore."
+  proximoDialogo: {fileID: 0}
+  opcoes: []
+  hasDiaryEntry: 1
+  diaryEntryName: "Localiza\xE7\xE3o Barata"
+  diaryEntryHint: "Ent\xE3o sempre que quiser voltar s\xF3 procurar naquela \xE1rvore"

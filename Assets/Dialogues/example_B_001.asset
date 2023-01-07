@@ -17,3 +17,6 @@ MonoBehaviour:
     e tranquila !"
   proximoDialogo: {fileID: 11400000, guid: b055f896e6e4b8749b9d69eeee9df185, type: 2}
   opcoes: []
+  hasDiaryEntry: 1
+  diaryEntryName: Minha Origem
+  diaryEntryHint: "Eu menti, preciso lembrar dessa informa\xE7\xE3o"

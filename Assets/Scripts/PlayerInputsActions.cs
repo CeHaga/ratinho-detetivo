@@ -44,6 +44,15 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Diary"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a5f1582-a206-4f83-9b38-bd59a400b287"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0287dc70-71c0-40aa-9541-a5ece527f068"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Diary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -139,6 +159,7 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
         m_OnFoot = asset.FindActionMap("OnFoot", throwIfNotFound: true);
         m_OnFoot_Movement = m_OnFoot.FindAction("Movement", throwIfNotFound: true);
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
+        m_OnFoot_Diary = m_OnFoot.FindAction("Diary", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -200,12 +221,14 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
     private IOnFootActions m_OnFootActionsCallbackInterface;
     private readonly InputAction m_OnFoot_Movement;
     private readonly InputAction m_OnFoot_Interact;
+    private readonly InputAction m_OnFoot_Diary;
     public struct OnFootActions
     {
         private @PlayerInputsActions m_Wrapper;
         public OnFootActions(@PlayerInputsActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_OnFoot_Movement;
         public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
+        public InputAction @Diary => m_Wrapper.m_OnFoot_Diary;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -221,6 +244,9 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnInteract;
+                @Diary.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnDiary;
+                @Diary.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnDiary;
+                @Diary.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnDiary;
             }
             m_Wrapper.m_OnFootActionsCallbackInterface = instance;
             if (instance != null)
@@ -231,6 +257,9 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Diary.started += instance.OnDiary;
+                @Diary.performed += instance.OnDiary;
+                @Diary.canceled += instance.OnDiary;
             }
         }
     }
@@ -248,5 +277,6 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnDiary(InputAction.CallbackContext context);
     }
 }

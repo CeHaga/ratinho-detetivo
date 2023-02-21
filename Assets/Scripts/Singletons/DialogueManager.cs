@@ -3,11 +3,12 @@ using TMPro;
 using UnityEngine;
 
 public sealed class DialogueManager : MonoBehaviour {
+	public static DialogueTemplate currentDialogue;
+
 	[SerializeField] private Canvas UIContainer;
 	[SerializeField] private TextMeshProUGUI characterNameComponent;
 	[SerializeField] private TextMeshProUGUI messageComponent;
 	[SerializeField] private Image avatarComponent;
-	[SerializeField] private DialogueTemplate currentDialogue;
 	[SerializeField] private DiaryEntryEvent OnDiaryEntryAdded;
 
 	public static DialogueManager Instance {
@@ -34,8 +35,8 @@ public sealed class DialogueManager : MonoBehaviour {
 	}
 
 	public void StartDialogue(/* DialogueTemplate dialogueToPlay */) {
-		// if(dialogueToPlay == null)
-			// return;
+		if(DialogueManager.currentDialogue == null)
+			return;
 		
 		// currentDialogue = dialogueToPlay;
 		hasStarted = true;

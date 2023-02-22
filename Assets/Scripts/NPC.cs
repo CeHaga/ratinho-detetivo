@@ -1,17 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
     [SerializeField] private DialogueTemplate dialogue;
+    [SerializeField] private int tempoNecessario;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            DialogueManager.currentDialogue = this.dialogue;
+            DialogueManager.Instance.currentDialogue = this.dialogue;
+            DialogueManager.Instance.onDialogueFinish += this.HandleDialogueFinish;
         }
     }
 
@@ -19,7 +18,19 @@ public class NPC : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DialogueManager.currentDialogue = null;
+            DialogueManager.Instance.currentDialogue = null;
+            DialogueManager.Instance.onDialogueFinish -= this.HandleDialogueFinish;
         }
+    }
+
+    private void OnDisable()
+    {
+        DialogueManager.Instance.currentDialogue = null;
+        DialogueManager.Instance.onDialogueFinish -= this.HandleDialogueFinish;
+    }
+
+    private void HandleDialogueFinish()
+    {
+        GameManager.Instance.IncreaseTempoAtual(this.tempoNecessario);
     }
 }

@@ -12,17 +12,16 @@ public struct FasesDoJogo
 }
 public sealed class GameManager : MonoBehaviour
 {
-    public static int TempoAtual = 0;
-
     public static GameManager Instance {
         get; private set;
     }
+    
+    public static int TempoAtual = 1;
+    private static int indexCenaAtual = 0;
+    private static int tempoTotal = 0;
 
     [SerializeField]
     private List<FasesDoJogo> fases;
-
-    private int indexCenaAtual = 0;
-    private int tempoTotal = 0;
     
     private void Awake() {
         if (Instance != null && Instance != this) { 
@@ -36,18 +35,20 @@ public sealed class GameManager : MonoBehaviour
 
     private void Start()
     {
-        this.tempoTotal = this.fases.Aggregate(0, (acc, faseDoJogo) => acc + faseDoJogo.tempoTotal);
+        GameManager.TempoAtual = 1;
+        GameManager.indexCenaAtual = 0;
+        GameManager.tempoTotal = this.fases.Aggregate(0, (acc, faseDoJogo) => acc + faseDoJogo.tempoTotal);
     }
 
     public void IncreaseTempoAtual(int value)
     {
         GameManager.TempoAtual += value;
-        Debug.Log(GameManager.TempoAtual);
 
-        if (GameManager.TempoAtual >= this.fases[this.indexCenaAtual].tempoTotal)
+        if (GameManager.TempoAtual > this.fases[GameManager.indexCenaAtual].tempoTotal)
         {
-            this.indexCenaAtual++;
-            SceneManager.LoadScene(this.fases[this.indexCenaAtual].cena);
+            GameManager.TempoAtual = 1;
+            GameManager.indexCenaAtual++;
+            SceneManager.LoadScene(this.fases[GameManager.indexCenaAtual].cena);
         }
     }
 

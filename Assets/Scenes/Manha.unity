@@ -303,21 +303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 173ef3854192e2841b1b04f40ff34451, type: 2}
-  dialogueFinishedActions:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1176408634}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IncreaseTempoAtual
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  gameManager: {fileID: 1176408634}
+  tempoNecessario: 1
 --- !u!1 &298452525
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +344,7 @@ MonoBehaviour:
     Path: event:/Bip
   Event: 
   PlayEvent: 1
-  StopEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

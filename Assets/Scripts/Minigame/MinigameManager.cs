@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 
 public class MinigameManager : MonoBehaviour
 {
     [SerializeField] private GameObject cardPrefab;
-    [SerializeField] private bool enableShuffle;
 
     [Range(1, 6)]
     [SerializeField] private int width;
@@ -13,10 +14,9 @@ public class MinigameManager : MonoBehaviour
     [Range(1, 3)] 
     [SerializeField] private int height;
 
-    [SerializeField] private FlipCardEvent OnFlipCard;
-
-    private GameObject[,] cards;
-    private bool[,] cardValue;
+    [SerializeField] private GameObject[] cards;
+    [SerializeField] private bool[] cardValue;
+    [SerializeField] private CardController[] cardControllers;
 
     private int actualRow;
     private int diariesFound;
@@ -45,15 +45,15 @@ public class MinigameManager : MonoBehaviour
         diariesFound = 0;
 
         // Set one random card true per row
-        cardValue = new bool[height, width];
+        cardValue = new bool[height * width];
         for (int i = 0; i < height; i++)
         {
             for(int j = 0; j < width; j++)
             {
-                cardValue[i, j] = false;
+                cardValue[i * width + j] = false;
             }
             int randomColumn = Random.Range(0, width);
-            cardValue[i, randomColumn] = true;
+            cardValue[i * width + randomColumn] = true;
         }
     }
 
@@ -79,23 +79,15 @@ public class MinigameManager : MonoBehaviour
         Debug.Log("Clicked card: " + row + ", " + column);
         if (row == actualRow)
         {
-            // For each card in the row, flip it
-            for (int i = 0; i < width; i++)
-            {
-                OnFlipCard.Invoke(cardValue[row, i]);
-            }
+            cardControllers[row * width + column].FlipCard(cardValue[row * width + column]);
+            actualRow++;
         }
     }
 
-    #if UNITY_EDITOR
-    private void OnValidate() {
-        if(!enableShuffle) return;
-        UnityEditor.EditorApplication.delayCall += _OnValidate;
-    }
-    
-    private void _OnValidate()
+    [EditorCools.Button]
+    public void CreateCards()
     {
-        if (this == null) return;
+        Debug.Log("Creating cards");
 
         float cameraHeight = Camera.main.orthographicSize * 2;
         float cameraWidth = cameraHeight * Camera.main.aspect;
@@ -113,16 +105,24 @@ public class MinigameManager : MonoBehaviour
         }
 
         // Create new cards
-        cards = new GameObject[height, width];
+        cards = new GameObject[height * width];
+        cardControllers = new CardController[height * width];
         for (int i = 0; i < height; i++)
         {
             for (int j = 0; j < width; j++)
             {
-                cards[i, j] = Instantiate(cardPrefab, transform);
-                cards[i, j].transform.position = new Vector3((j + 1) * widthOffset - cameraWidth / 2, -(i + 1) * heightOffset + cameraHeight / 2, 0);
-                cards[i, j].GetComponent<CardController>().Init(i, j);
+                cards[i * width + j] = Instantiate(cardPrefab, transform);
+                cards[i * width + j].transform.position = new Vector3((j + 1) * widthOffset - cameraWidth / 2, -(i + 1) * heightOffset + cameraHeight / 2, 0);
+                cardControllers[i * width + j] = cards[i * width + j].GetComponent<CardController>();
+                cardControllers[i * width + j].Init(i, j);
             }
         }
+        // Debug if cardcontrollers is null
+        Debug.Log("Card controllers is null: " + (cardControllers == null));
+ 
+        EditorUtility.SetDirty(this);
+        var scene = gameObject.scene;
+        EditorSceneManager.MarkSceneDirty(scene);
     }
 
     IEnumerator Destroy(GameObject go)
@@ -130,5 +130,4 @@ public class MinigameManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         DestroyImmediate(go);
     }
-    #endif
 }

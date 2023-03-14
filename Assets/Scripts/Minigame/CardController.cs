@@ -20,4 +20,16 @@ public class CardController : MonoBehaviour, IPointerDownHandler
     {
         OnCardClick.Invoke(row, column);
     }
+
+    public void FlipCard(bool value)
+    {
+        if (value)
+        {
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
 }

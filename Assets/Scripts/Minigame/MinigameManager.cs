@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEditor;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class MinigameManager : MonoBehaviour
@@ -28,26 +28,11 @@ public class MinigameManager : MonoBehaviour
 	[SerializeField] private GameObject[] cards;
 	[SerializeField] private bool[] cardValue;
 	[SerializeField] private CardController[] cardControllers;
+	
+	[Header("Scenes")]
+	[SerializeField] private string mainGameScene;
 
 	private int actualRow;
-	private int diariesFound;
-
-	public static MinigameManager Instance {
-		get; private set;
-	}
-	public bool hasStarted {
-		get; private set;
-	}
-	
-	private void Awake() {
-		if (Instance != null && Instance != this) { 
-			Destroy(this.gameObject);
-		} else {
-			Instance = this;
-		}
-
-		DontDestroyOnLoad(this.gameObject);
-	}
 
 	// Start is called before the first frame update
 	void Start()
@@ -88,6 +73,10 @@ public class MinigameManager : MonoBehaviour
 			if(actualRow >= height)
 			{
 				Debug.Log("You Win");
+				
+				yield return new WaitForSeconds(delayBetweenTries);
+				
+				GameOver(true);
 			}
 			yield break;
 		}
@@ -116,6 +105,10 @@ public class MinigameManager : MonoBehaviour
 					}
 				}
 			}
+			
+			yield return new WaitForSeconds(delayBetweenTries);
+			
+			GameOver(false);
 		}
 		
 		isWaiting = false;
@@ -135,6 +128,14 @@ public class MinigameManager : MonoBehaviour
 		isWaiting = true;
 		yield return new WaitForSeconds(delayBetweenTries);
 		isWaiting = false;
+	}
+	
+	public void GameOver(bool win)
+	{
+		// Go back to main game
+		MinigameResult.happened = true;
+		MinigameResult.win = win;
+		SceneManager.LoadScene(mainGameScene);
 	}
 
 	public void CreateCards()

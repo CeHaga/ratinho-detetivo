@@ -29,9 +29,7 @@ public class MinigameManager : MonoBehaviour
 	[SerializeField] private bool[] cardValue;
 	[SerializeField] private CardController[] cardControllers;
 	
-	[Header("Scenes")]
-	[SerializeField] private string mainGameScene;
-
+	private string mainGameScene;
 	private int actualRow;
 
 	// Start is called before the first frame update
@@ -40,6 +38,8 @@ public class MinigameManager : MonoBehaviour
 		actualRow = 0;
 		currentTry = 0;
 		isWaiting = false;
+		
+		mainGameScene = MinigameResult.mainGameScene;
 		
 		triesText.text = "" + (totalTries - currentTry);
 

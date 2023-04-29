@@ -12,7 +12,7 @@ public class MinigameStart : MonoBehaviour
 	}
 	
 	private void Start() {		
-		Debug.Log(MinigameResult.happened);
-		Debug.Log(MinigameResult.win);
+		Debug.Log("MinigameResult.happened: " + MinigameResult.happened);
+		Debug.Log("MinigameResult.win: " + MinigameResult.win);
 	}
 }

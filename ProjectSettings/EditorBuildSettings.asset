@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Noite.unity
     guid: ca64c14dced207446b452750fb3576ce
+  - enabled: 1
+    path: Assets/Scenes/Minigame.unity
+    guid: fee26f59717499e479fa87e78541eb9d
   m_configObjects: {}

@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour
 	}
 
 	[SerializeField] private float playerSpeed;
-	[SerializeField] private UnityEvent OnDialogueStart;
-	[SerializeField] private UnityEvent OnDialogueNextLine;
 	[SerializeField] private UnityEvent OnDiaryToggle;
 
 	private Rigidbody2D playerRigidBody;
@@ -115,9 +113,9 @@ public class PlayerController : MonoBehaviour
 	{
 		if(context.performed) {
 			if(DialogueManager.Instance.hasStarted == false) {
-				OnDialogueStart.Invoke();
+				DialogueManager.Instance.StartDialogue();
 			} else if (DialogueManager.Instance.hasStarted) {
-				OnDialogueNextLine.Invoke();
+				DialogueManager.Instance.NextLine();
 			}
 		}
 	}

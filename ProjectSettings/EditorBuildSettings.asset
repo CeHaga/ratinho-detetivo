@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Playground.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Manha.unity
+    guid: 0e8f19ae678d323448d9f0c86b05c9ca
+  - enabled: 1
+    path: Assets/Scenes/Tarde.unity
+    guid: d9025ef0b25efa848aa19e1a99393db7
+  - enabled: 1
+    path: Assets/Scenes/Noite.unity
+    guid: ca64c14dced207446b452750fb3576ce
   m_configObjects: {}

@@ -53,6 +53,15 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Minigame"",
+                    ""type"": ""Button"",
+                    ""id"": ""5506c53c-e569-466f-ae9a-e925dd2671fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
                     ""action"": ""Diary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78910e09-64e4-46ac-89b3-1dbbb197931d"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Minigame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -160,6 +180,7 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
         m_OnFoot_Movement = m_OnFoot.FindAction("Movement", throwIfNotFound: true);
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
         m_OnFoot_Diary = m_OnFoot.FindAction("Diary", throwIfNotFound: true);
+        m_OnFoot_Minigame = m_OnFoot.FindAction("Minigame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -222,6 +243,7 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Movement;
     private readonly InputAction m_OnFoot_Interact;
     private readonly InputAction m_OnFoot_Diary;
+    private readonly InputAction m_OnFoot_Minigame;
     public struct OnFootActions
     {
         private @PlayerInputsActions m_Wrapper;
@@ -229,6 +251,7 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_OnFoot_Movement;
         public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
         public InputAction @Diary => m_Wrapper.m_OnFoot_Diary;
+        public InputAction @Minigame => m_Wrapper.m_OnFoot_Minigame;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -247,6 +270,9 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
                 @Diary.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnDiary;
                 @Diary.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnDiary;
                 @Diary.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnDiary;
+                @Minigame.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnMinigame;
+                @Minigame.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnMinigame;
+                @Minigame.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnMinigame;
             }
             m_Wrapper.m_OnFootActionsCallbackInterface = instance;
             if (instance != null)
@@ -260,6 +286,9 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
                 @Diary.started += instance.OnDiary;
                 @Diary.performed += instance.OnDiary;
                 @Diary.canceled += instance.OnDiary;
+                @Minigame.started += instance.OnMinigame;
+                @Minigame.performed += instance.OnMinigame;
+                @Minigame.canceled += instance.OnMinigame;
             }
         }
     }
@@ -278,5 +307,6 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDiary(InputAction.CallbackContext context);
+        void OnMinigame(InputAction.CallbackContext context);
     }
 }

@@ -3,11 +3,16 @@ using TMPro;
 using UnityEngine;
 
 public sealed class DialogueManager : MonoBehaviour {
+	public DialogueTemplate currentDialogue;
+
+	public delegate void OnDialogueFinish();
+
+	public event OnDialogueFinish onDialogueFinish;
+
 	[SerializeField] private Canvas UIContainer;
 	[SerializeField] private TextMeshProUGUI characterNameComponent;
 	[SerializeField] private TextMeshProUGUI messageComponent;
 	[SerializeField] private Image avatarComponent;
-	[SerializeField] private DialogueTemplate currentDialogue;
 	[SerializeField] private DiaryEntryEvent OnDiaryEntryAdded;
 
 	public static DialogueManager Instance {
@@ -29,15 +34,13 @@ public sealed class DialogueManager : MonoBehaviour {
 
 	private void Start() {
 		HideUI();
-		// isPlaying = false;
 		hasStarted = false;
 	}
 
-	public void StartDialogue(/* DialogueTemplate dialogueToPlay */) {
-		// if(dialogueToPlay == null)
-			// return;
+	public void StartDialogue() {
+		if(this.currentDialogue == null)
+			return;
 		
-		// currentDialogue = dialogueToPlay;
 		hasStarted = true;
 		setUIInfo();
 		showDialogueUI();
@@ -64,6 +67,12 @@ public sealed class DialogueManager : MonoBehaviour {
 			Debug.Log("Dialogo acabou");
 			HideUI();
 			hasStarted = false;
+
+			if (this.onDialogueFinish != null)
+			{
+				this.onDialogueFinish.Invoke();
+			}
+			
 			return;
 		}
 

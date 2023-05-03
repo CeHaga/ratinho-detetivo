@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class MinigameStart : MonoBehaviour
@@ -11,10 +12,12 @@ public class MinigameStart : MonoBehaviour
 		Debug.Log("MinigameResult.win: " + MinigameResult.win);
 		
 		MinigameResult.mainGameScene = SceneManager.GetActiveScene().name;
+		
 	}
 	
 	public void StartMinigame()
 	{
+		Debug.Log("StartMinigame");
 		SceneManager.LoadScene(minigameScene);
 	}
 }

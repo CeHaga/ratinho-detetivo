@@ -7,41 +7,54 @@ using UnityEngine.UI;
 
 public class ProgressaoTempoHandler : MonoBehaviour
 {
-    public static ProgressaoTempoHandler Instance {
-        get; private set;
-    }
-    
-    [SerializeField] private Image mask;
-    
-    private int maximum;
-    
-    private void Awake() {
-        if (Instance != null && Instance != this) { 
-            Destroy(this.gameObject);
-        } else {
-            Instance = this;
-        }
+	public static ProgressaoTempoHandler Instance {
+		get; private set;
+	}
+	
+	[SerializeField] private Image mask;
+	[SerializeField] private GameObject timeBar;
+	
+	private int maximum;
+	
+	private void Awake() {
+		if (Instance != null && Instance != this) { 
+			Destroy(this.gameObject);
+		} else {
+			Instance = this;
+		}
 
-        DontDestroyOnLoad(this.gameObject);
-    }
+		DontDestroyOnLoad(this.gameObject);
+	}
 
-    private void Start()
-    {
-        this.maximum = GameManager.Instance.fases.Aggregate(0, (acc, faseDoJogo) => acc + faseDoJogo.tempoTotal);
+	private void Start()
+	{
+		this.maximum = GameManager.Instance.fases.Aggregate(0, (acc, faseDoJogo) => acc + faseDoJogo.tempoTotal);
 
-        this.UpdateUI();
-    }
+		this.UpdateUI();
+	}
 
-    public void UpdateUI()
-    {
-        int offset = 0;
+	public void UpdateUI()
+	{
+		int offset = 0;
 
-        for (int i = 0; i < GameManager.IndexCenaAtual; i++)
-        {
-            offset += GameManager.Instance.fases[i].tempoTotal;
-        }
-        
-        float percentage = ((float)GameManager.TempoAtual + offset) / this.maximum;
-        this.mask.fillAmount = percentage;
-    }
+		for (int i = 0; i < GameManager.IndexCenaAtual; i++)
+		{
+			offset += GameManager.Instance.fases[i].tempoTotal;
+		}
+		
+		float percentage = ((float)GameManager.TempoAtual + offset) / this.maximum;
+		this.mask.fillAmount = percentage;
+	}
+	
+	public void Hide()
+	{
+		Debug.Log("Hide");
+		timeBar.SetActive(false);
+	}
+	
+	public void Show()
+	{
+		Debug.Log("Show");
+		timeBar.SetActive(true);
+	}
 }

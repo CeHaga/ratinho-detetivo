@@ -808,7 +808,7 @@ PrefabInstance:
       objectReference: {fileID: 47572032}
     - target: {fileID: 889844521906775222, guid: 3fc1b11d305738244a2a2f7fbc03dfd8, type: 3}
       propertyPath: totalTries
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 889844521906775222, guid: 3fc1b11d305738244a2a2f7fbc03dfd8, type: 3}
       propertyPath: enableShuffle

@@ -11,18 +11,22 @@ public class PlayerController : MonoBehaviour
 	}
 
 	[SerializeField] private float playerSpeed;
-	[SerializeField] private UnityEvent OnDiaryToggle;
 
 	private Rigidbody2D playerRigidBody;
 	private Animator playerAnimator;
 	private Vector2 rawInputMovement = Vector2.zero;
 	private States currentState = States.IDLE;
 	private string currentAnimation = "Idle";
+	private DiaryManager diaryManager;
 
 	private void Awake()
 	{
 		playerRigidBody = GetComponent<Rigidbody2D>();
 		playerAnimator = GetComponent<Animator>();
+	}
+	
+	private void Start() {
+		diaryManager = DiaryManager.Instance;
 	}
 
 	private void Update()
@@ -123,7 +127,7 @@ public class PlayerController : MonoBehaviour
 	public void OnActionDiary(InputAction.CallbackContext context) 
 	{
 		if(context.performed) {
-			OnDiaryToggle.Invoke();
+			diaryManager.ToggleDiary();
 		}
 	}
 }

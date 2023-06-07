@@ -31,7 +31,7 @@ public class DiaryManager : MonoBehaviour
 		entries = new List<DiaryEntry>();
 	}
 	
-	public void ToogleDiary() {
+	public void ToggleDiary() {
 		// if(inDiary) {
 		// 	HideUI();
 		// 	inDiary = false;

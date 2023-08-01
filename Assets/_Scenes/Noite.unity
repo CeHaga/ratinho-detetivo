@@ -700,7 +700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6485f26bf8e654694870cef457fdc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entries: []
 --- !u!4 &583528201
 Transform:
   m_ObjectHideFlags: 0
@@ -1268,7 +1267,7 @@ PrefabInstance:
     - target: {fileID: 4067146140660087860, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
       propertyPath: currentDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 173ef3854192e2841b1b04f40ff34451, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4067146140660087860, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
       propertyPath: OnDiaryEntryAdded.m_PersistentCalls.m_Calls.Array.size
       value: 1

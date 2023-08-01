@@ -5,7 +5,10 @@ using UnityEngine;
 public class DiaryManager : MonoBehaviour
 {
 	// [SerializeField] private Canvas UIContainer;
-	[SerializeField] private List<DiaryEntry> entries;
+	public List<DiaryEntry> entries 
+	{
+		get; private set;
+	}
 	
 	public static DiaryManager Instance {
 		get; private set;

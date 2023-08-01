@@ -51,6 +51,7 @@ MonoBehaviour:
     tempoTotal: 4
   - cena: Noite
     tempoTotal: 3
+  finalScene: Tribunal
   OnTempoChange:
     m_PersistentCalls:
       m_Calls:

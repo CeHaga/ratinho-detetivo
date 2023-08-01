@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Minigame.unity
     guid: fee26f59717499e479fa87e78541eb9d
+  - enabled: 1
+    path: Assets/_Scenes/Tribunal.unity
+    guid: 4e7d4d13688c8364496e588bd84c92b6
   m_configObjects: {}

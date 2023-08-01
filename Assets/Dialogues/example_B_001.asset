@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: example_B_001
   m_EditorClassIdentifier: 
   personagem: {fileID: 11400000, guid: 9b22c6cd0d1419e43bbe960f8048d299, type: 2}
-  texto: "Me mudei semana passada para c\xE1 ! A vizinhan\xE7a parece ser muita calma
-    e tranquila !"
+  texto: "Me mudei semana passada para c\xE1! A vizinhan\xE7a parece ser muita calma
+    e tranquila!"
   proximoDialogo: {fileID: 11400000, guid: b055f896e6e4b8749b9d69eeee9df185, type: 2}
   opcoes: []
   hasDiaryEntry: 1

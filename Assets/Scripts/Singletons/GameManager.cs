@@ -23,6 +23,7 @@ public sealed class GameManager : MonoBehaviour
 
 	[Header("Fases do Jogo")]
 	[SerializeField] public List<FasesDoJogo> fases;
+	[SerializeField] private string finalScene;
 	
 	[Header("Time Events")]
 	[SerializeField] private UnityEvent OnTempoChange;
@@ -78,7 +79,13 @@ public sealed class GameManager : MonoBehaviour
 		{
 			GameManager.TempoAtual = 1;
 			GameManager.IndexCenaAtual++;
-			SceneManager.LoadScene(this.fases[GameManager.IndexCenaAtual].cena);
+			if(GameManager.IndexCenaAtual >= this.fases.Count)
+			{
+				CourtroomData.entries = DiaryManager.Instance.entries;
+				SceneManager.LoadScene(this.finalScene);
+			}
+			else
+				SceneManager.LoadScene(this.fases[GameManager.IndexCenaAtual].cena);
 		}
 	}
 }

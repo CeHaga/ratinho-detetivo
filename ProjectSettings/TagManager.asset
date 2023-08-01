@@ -9,6 +9,8 @@ TagManager:
   - Object
   - HUD
   - TimeBar
+  - SuspectName
+  - EvidenceName
   layers:
   - Default
   - TransparentFX

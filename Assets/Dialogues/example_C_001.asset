@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: example_C_001
   m_EditorClassIdentifier: 
   personagem: {fileID: 11400000, guid: 9b22c6cd0d1419e43bbe960f8048d299, type: 2}
-  texto: "Eu sou novo nessa regi\xE3o, moro no outro lado da rua, e voc\xEA ?"
+  texto: "Eu sou novo nessa regi\xE3o, moro no outro lado da rua, e voc\xEA?"
   proximoDialogo: {fileID: 11400000, guid: b055f896e6e4b8749b9d69eeee9df185, type: 2}
   opcoes: []
+  hasDiaryEntry: 0
+  diaryEntryName: 
+  diaryEntryHint: 

@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: example_A_002
   m_EditorClassIdentifier: 
   personagem: {fileID: 11400000, guid: bedb83397cf098147acf50cd1aec5936, type: 2}
-  texto: "Vivo aqui h\xE1 muito tempo !! Mas e voc\xEA ? Nunca te vi por aqui..."
+  texto: "Vivo aqui h\xE1 muito tempo!! Mas e voc\xEA? Nunca te vi por aqui..."
   proximoDialogo: {fileID: 0}
   opcoes:
   - Texto: Me mudei na semana passada
     Dialogue: {fileID: 11400000, guid: 2c1b61edcda0d2d4b8037498a6e4dfdb, type: 2}
   - Texto: "Eu sou novo na regi\xE3o"
     Dialogue: {fileID: 11400000, guid: 49a888cd4f867094a83a883472d79aaa, type: 2}
+  hasDiaryEntry: 0
+  diaryEntryName: 
+  diaryEntryHint: 

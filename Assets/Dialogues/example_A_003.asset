@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: example_A_003
   m_EditorClassIdentifier: 
   personagem: {fileID: 11400000, guid: bedb83397cf098147acf50cd1aec5936, type: 2}
-  texto: "Nossa que legal ! Eu me chamo Barata, moro aqui desde que nasci. Sempre
+  texto: "Nossa que legal! Eu me chamo Barato, moro aqui desde que nasci. Sempre
     que quiser conversar, voce pode me encontrar perto daquela \xE1rvore."
   proximoDialogo: {fileID: 0}
   opcoes: []

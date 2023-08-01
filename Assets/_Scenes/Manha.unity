@@ -1283,6 +1283,10 @@ PrefabInstance:
       value: TimeManager
       objectReference: {fileID: 0}
     - target: {fileID: 7339905460329327754, guid: f281ca99086112f48a0e73f762d23c99, type: 3}
+      propertyPath: finalScene
+      value: Tribunal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339905460329327754, guid: f281ca99086112f48a0e73f762d23c99, type: 3}
       propertyPath: HideTimeBar.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1115031861}

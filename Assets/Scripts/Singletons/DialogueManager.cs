@@ -2,11 +2,21 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
+public enum MoveDialogueOptions {
+	UP,
+	DOWN
+}
+
 public sealed class DialogueManager : MonoBehaviour {
 	public DialogueTemplate currentDialogue;
+	public DialogueTemplate nextDialogue;
+	private int dialogueIndex;
+	private int countOptions;
 
+	public delegate void OnDialogueStart();
 	public delegate void OnDialogueFinish();
 
+	public event OnDialogueStart onDialogueStart;
 	public event OnDialogueFinish onDialogueFinish;
 
 	[SerializeField] private Canvas UIContainer;
@@ -36,20 +46,14 @@ public sealed class DialogueManager : MonoBehaviour {
 		HideUI();
 		hasStarted = false;
 	}
-
-	public void StartDialogue() {
-		if(this.currentDialogue == null)
-			return;
-		
-		hasStarted = true;
-		setUIInfo();
-		showDialogueUI();
+	
+	private void SetDialogue(DialogueTemplate dialogue) {
+		currentDialogue = dialogue;
+		dialogueIndex = 0;
+		countOptions = currentDialogue.opcoes.Count;
 		if(currentDialogue.opcoes.Count > 0) {
 			ShowOpcoes();
 		}
-	}
-
-	public void NextLine() {
 		if(currentDialogue.hasDiaryEntry) {
 			DiaryEntry entry = new DiaryEntry(
 				currentDialogue.diaryEntryName,
@@ -59,26 +63,58 @@ public sealed class DialogueManager : MonoBehaviour {
 			);
 			OnDiaryEntryAdded.Invoke(entry);
 		}
+		nextDialogue = currentDialogue.proximoDialogo;
 		if(currentDialogue.opcoes.Count > 0) {
-			currentDialogue = currentDialogue.opcoes[0].Dialogue;
-		} else if (currentDialogue.proximoDialogo != null) {
-			currentDialogue = currentDialogue.proximoDialogo;
-		} else {
-			Debug.Log("Dialogo acabou");
-			HideUI();
-			hasStarted = false;
+			nextDialogue = currentDialogue.opcoes[0].Dialogue;
+		}
+		setUIInfo();
+	}
 
-			if (this.onDialogueFinish != null)
-			{
-				this.onDialogueFinish.Invoke();
-			}
-			
+	public void StartDialogue(DialogueTemplate dialogue) {
+		if(onDialogueStart != null){
+			onDialogueStart.Invoke();
+		}
+		SetDialogue(dialogue);
+		hasStarted = true;
+		showDialogueUI();
+	}
+
+	public void Continue() {
+		if(nextDialogue != null){
+			SetDialogue(nextDialogue);
 			return;
 		}
+		
+		Debug.Log("Dialogo acabou");
+		HideUI();
+		hasStarted = false;
 
-		setUIInfo();
-		if(currentDialogue.opcoes.Count > 0)
-			ShowOpcoes();
+		if (this.onDialogueFinish != null)
+		{
+			this.onDialogueFinish.Invoke();
+		}
+	}
+	
+	public void MoveOption(MoveDialogueOptions option) {
+		if(currentDialogue.opcoes.Count > 0) {
+			switch (option) {
+				case MoveDialogueOptions.UP:
+					dialogueIndex--;
+					if(dialogueIndex < 0) {
+						dialogueIndex = countOptions - 1;
+					}
+					break;
+				case MoveDialogueOptions.DOWN:
+					dialogueIndex++;
+					if(dialogueIndex >= countOptions) {
+						dialogueIndex = 0;
+					}
+					break;
+			}
+			nextDialogue = currentDialogue.opcoes[dialogueIndex].Dialogue;
+		}
+		if(nextDialogue != null) Debug.Log("Opção selecionada " + dialogueIndex + ": " + nextDialogue.texto);
+		else Debug.Log("Diálogo vai acabar");
 	}
 
 	private void ShowOpcoes() {

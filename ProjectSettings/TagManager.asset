@@ -11,6 +11,7 @@ TagManager:
   - TimeBar
   - SuspectName
   - EvidenceName
+  - NPC
   layers:
   - Default
   - TransparentFX

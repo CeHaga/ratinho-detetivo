@@ -12,6 +12,8 @@ TagManager:
   - SuspectName
   - EvidenceName
   - NPC
+  - OptionArrow
+  - OptionText
   layers:
   - Default
   - TransparentFX

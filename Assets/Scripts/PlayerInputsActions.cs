@@ -24,7 +24,7 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputsActions"",
     ""maps"": [
         {
-            ""name"": ""OnFoot"",
+            ""name"": ""Walking"",
             ""id"": ""19063f75-723d-4868-8449-34721b98ae04"",
             ""actions"": [
                 {
@@ -154,6 +154,76 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""b57c3d0b-862b-4eae-a98a-1cc84f86fd8f"",
+            ""actions"": [
+                {
+                    ""name"": ""InteractDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""88631de5-93d5-44e9-9bb4-57141f1b8f73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChooseDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""10c2202f-c966-492d-b9bd-1670fa956995"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9865d71e-ad9e-4b04-aefc-6d756d8a3c58"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""InteractDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""ChooseAxis"",
+                    ""id"": ""62f49380-6b00-4386-b7af-f238d0575c26"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChooseDialogue"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""30090836-ca94-4e72-87b4-6a41ee0f93e6"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChooseDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""e4056ce9-4f85-48bc-a85d-912b96a69f48"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChooseDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -175,12 +245,16 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // OnFoot
-        m_OnFoot = asset.FindActionMap("OnFoot", throwIfNotFound: true);
-        m_OnFoot_Movement = m_OnFoot.FindAction("Movement", throwIfNotFound: true);
-        m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
-        m_OnFoot_Diary = m_OnFoot.FindAction("Diary", throwIfNotFound: true);
-        m_OnFoot_Minigame = m_OnFoot.FindAction("Minigame", throwIfNotFound: true);
+        // Walking
+        m_Walking = asset.FindActionMap("Walking", throwIfNotFound: true);
+        m_Walking_Movement = m_Walking.FindAction("Movement", throwIfNotFound: true);
+        m_Walking_Interact = m_Walking.FindAction("Interact", throwIfNotFound: true);
+        m_Walking_Diary = m_Walking.FindAction("Diary", throwIfNotFound: true);
+        m_Walking_Minigame = m_Walking.FindAction("Minigame", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_InteractDialogue = m_Dialogue.FindAction("InteractDialogue", throwIfNotFound: true);
+        m_Dialogue_ChooseDialogue = m_Dialogue.FindAction("ChooseDialogue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -237,44 +311,44 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // OnFoot
-    private readonly InputActionMap m_OnFoot;
-    private IOnFootActions m_OnFootActionsCallbackInterface;
-    private readonly InputAction m_OnFoot_Movement;
-    private readonly InputAction m_OnFoot_Interact;
-    private readonly InputAction m_OnFoot_Diary;
-    private readonly InputAction m_OnFoot_Minigame;
-    public struct OnFootActions
+    // Walking
+    private readonly InputActionMap m_Walking;
+    private IWalkingActions m_WalkingActionsCallbackInterface;
+    private readonly InputAction m_Walking_Movement;
+    private readonly InputAction m_Walking_Interact;
+    private readonly InputAction m_Walking_Diary;
+    private readonly InputAction m_Walking_Minigame;
+    public struct WalkingActions
     {
         private @PlayerInputsActions m_Wrapper;
-        public OnFootActions(@PlayerInputsActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_OnFoot_Movement;
-        public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
-        public InputAction @Diary => m_Wrapper.m_OnFoot_Diary;
-        public InputAction @Minigame => m_Wrapper.m_OnFoot_Minigame;
-        public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
+        public WalkingActions(@PlayerInputsActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Walking_Movement;
+        public InputAction @Interact => m_Wrapper.m_Walking_Interact;
+        public InputAction @Diary => m_Wrapper.m_Walking_Diary;
+        public InputAction @Minigame => m_Wrapper.m_Walking_Minigame;
+        public InputActionMap Get() { return m_Wrapper.m_Walking; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(OnFootActions set) { return set.Get(); }
-        public void SetCallbacks(IOnFootActions instance)
+        public static implicit operator InputActionMap(WalkingActions set) { return set.Get(); }
+        public void SetCallbacks(IWalkingActions instance)
         {
-            if (m_Wrapper.m_OnFootActionsCallbackInterface != null)
+            if (m_Wrapper.m_WalkingActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnMovement;
-                @Interact.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnInteract;
-                @Diary.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnDiary;
-                @Diary.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnDiary;
-                @Diary.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnDiary;
-                @Minigame.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnMinigame;
-                @Minigame.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnMinigame;
-                @Minigame.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnMinigame;
+                @Movement.started -= m_Wrapper.m_WalkingActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_WalkingActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_WalkingActionsCallbackInterface.OnMovement;
+                @Interact.started -= m_Wrapper.m_WalkingActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_WalkingActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_WalkingActionsCallbackInterface.OnInteract;
+                @Diary.started -= m_Wrapper.m_WalkingActionsCallbackInterface.OnDiary;
+                @Diary.performed -= m_Wrapper.m_WalkingActionsCallbackInterface.OnDiary;
+                @Diary.canceled -= m_Wrapper.m_WalkingActionsCallbackInterface.OnDiary;
+                @Minigame.started -= m_Wrapper.m_WalkingActionsCallbackInterface.OnMinigame;
+                @Minigame.performed -= m_Wrapper.m_WalkingActionsCallbackInterface.OnMinigame;
+                @Minigame.canceled -= m_Wrapper.m_WalkingActionsCallbackInterface.OnMinigame;
             }
-            m_Wrapper.m_OnFootActionsCallbackInterface = instance;
+            m_Wrapper.m_WalkingActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movement.started += instance.OnMovement;
@@ -292,7 +366,48 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
             }
         }
     }
-    public OnFootActions @OnFoot => new OnFootActions(this);
+    public WalkingActions @Walking => new WalkingActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private IDialogueActions m_DialogueActionsCallbackInterface;
+    private readonly InputAction m_Dialogue_InteractDialogue;
+    private readonly InputAction m_Dialogue_ChooseDialogue;
+    public struct DialogueActions
+    {
+        private @PlayerInputsActions m_Wrapper;
+        public DialogueActions(@PlayerInputsActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @InteractDialogue => m_Wrapper.m_Dialogue_InteractDialogue;
+        public InputAction @ChooseDialogue => m_Wrapper.m_Dialogue_ChooseDialogue;
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterface != null)
+            {
+                @InteractDialogue.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnInteractDialogue;
+                @InteractDialogue.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnInteractDialogue;
+                @InteractDialogue.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnInteractDialogue;
+                @ChooseDialogue.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnChooseDialogue;
+                @ChooseDialogue.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnChooseDialogue;
+                @ChooseDialogue.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnChooseDialogue;
+            }
+            m_Wrapper.m_DialogueActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @InteractDialogue.started += instance.OnInteractDialogue;
+                @InteractDialogue.performed += instance.OnInteractDialogue;
+                @InteractDialogue.canceled += instance.OnInteractDialogue;
+                @ChooseDialogue.started += instance.OnChooseDialogue;
+                @ChooseDialogue.performed += instance.OnChooseDialogue;
+                @ChooseDialogue.canceled += instance.OnChooseDialogue;
+            }
+        }
+    }
+    public DialogueActions @Dialogue => new DialogueActions(this);
     private int m_KeyboardandMouseSchemeIndex = -1;
     public InputControlScheme KeyboardandMouseScheme
     {
@@ -302,11 +417,16 @@ public partial class @PlayerInputsActions : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardandMouseSchemeIndex];
         }
     }
-    public interface IOnFootActions
+    public interface IWalkingActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDiary(InputAction.CallbackContext context);
         void OnMinigame(InputAction.CallbackContext context);
+    }
+    public interface IDialogueActions
+    {
+        void OnInteractDialogue(InputAction.CallbackContext context);
+        void OnChooseDialogue(InputAction.CallbackContext context);
     }
 }

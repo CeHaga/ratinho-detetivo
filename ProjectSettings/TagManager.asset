@@ -11,6 +11,9 @@ TagManager:
   - TimeBar
   - SuspectName
   - EvidenceName
+  - NPC
+  - OptionArrow
+  - OptionText
   layers:
   - Default
   - TransparentFX

@@ -5,36 +5,43 @@ using UnityEngine;
 public class DiaryManager : MonoBehaviour
 {
 	// [SerializeField] private Canvas UIContainer;
-	public List<DiaryEntry> entries 
+	public List<DiaryEntry> entries
 	{
 		get; private set;
 	}
-	
-	public static DiaryManager Instance {
+
+	public static DiaryManager Instance
+	{
 		get; private set;
 	}
-	public bool inDiary {
+	public bool inDiary
+	{
 		get; private set;
 	}
-	
-	private void Awake() {
-		if (Instance != null && Instance != this) { 
+
+	private void Awake()
+	{
+		if (Instance != null && Instance != this)
+		{
 			Destroy(this.gameObject);
-		} else {
+		}
+		else
+		{
 			Instance = this;
 		}
 
 		DontDestroyOnLoad(this.gameObject);
 	}
-	
+
 	void Start()
 	{
 		HideUI();
 		inDiary = false;
 		entries = new List<DiaryEntry>();
 	}
-	
-	public void ToggleDiary() {
+
+	public void ToggleDiary()
+	{
 		// if(inDiary) {
 		// 	HideUI();
 		// 	inDiary = false;
@@ -43,24 +50,29 @@ public class DiaryManager : MonoBehaviour
 		// 	inDiary = true;
 		// }
 		Debug.Log("Entries: ");
-		foreach (DiaryEntry entry in entries) {
+		foreach (DiaryEntry entry in entries)
+		{
 			Debug.Log(entry);
 		}
 	}
-	
-	public void AddEntry(DiaryEntry entry) {
+
+	public void AddEntry(DiaryEntry entry)
+	{
 		// Check if entry already exists
-		if(entries.Contains(entry)) {
+		if (entries.Contains(entry))
+		{
 			return;
-		}	
+		}
 		entries.Add(entry);
 	}
-	
-	private void showDiaryUI() {
+
+	private void showDiaryUI()
+	{
 		// UIContainer.enabled = true;
 	}
 
-	private void HideUI() {
+	private void HideUI()
+	{
 		// UIContainer.enabled = false;
 	}
 }

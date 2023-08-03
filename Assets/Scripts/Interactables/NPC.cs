@@ -6,16 +6,21 @@ public class NPC : MonoBehaviour, Interactable
 	[SerializeField] private int tempoNecessario;
 	[SerializeField] private GameObject visualCue;
 	private bool playerInRange;
-	
-	private void Awake() {
+
+	private void Awake()
+	{
 		playerInRange = false;
 		visualCue.SetActive(false);
 	}
-	
-	private void Update() {
-		if (playerInRange) {
+
+	private void Update()
+	{
+		if (playerInRange)
+		{
 			visualCue.SetActive(true);
-		} else {
+		}
+		else
+		{
 			visualCue.SetActive(false);
 		}
 	}
@@ -50,8 +55,9 @@ public class NPC : MonoBehaviour, Interactable
 	{
 		GameManager.Instance.IncreaseTempoAtual(this.tempoNecessario);
 	}
-	
-	public void Interact() {
+
+	public void Interact()
+	{
 		DialogueManager.Instance.StartDialogue(this.dialogue);
 	}
 }

@@ -11,7 +11,7 @@ public class CardController : MonoBehaviour, IPointerDownHandler
 
 	[SerializeField] private OnCardClickEvent OnCardClick;
 
-	public void Init(int row, int column, UnityAction<int,int> OnCardClick)
+	public void Init(int row, int column, UnityAction<int, int> OnCardClick)
 	{
 		this.row = row;
 		this.column = column;
@@ -34,7 +34,7 @@ public class CardController : MonoBehaviour, IPointerDownHandler
 			GetComponent<SpriteRenderer>().color = Color.red;
 		}
 	}
-	
+
 	public void ResetCard()
 	{
 		GetComponent<SpriteRenderer>().color = Color.white;

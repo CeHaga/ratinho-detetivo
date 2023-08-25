@@ -5,12 +5,15 @@ public class NPC : MonoBehaviour, Interactable
 	[SerializeField] private DialogueTemplate dialogue;
 	[SerializeField] private int tempoNecessario;
 	[SerializeField] private GameObject visualCue;
+	[SerializeField] private bool disappearAfterInteraction;
 	private bool playerInRange;
+	private bool hasInteracted;
 
 	private void Awake()
 	{
 		playerInRange = false;
 		visualCue.SetActive(false);
+		hasInteracted = false;
 	}
 
 	private void Update()
@@ -27,6 +30,7 @@ public class NPC : MonoBehaviour, Interactable
 
 	private void OnTriggerEnter2D(Collider2D col)
 	{
+		if (hasInteracted) return;
 		if (col.CompareTag("Player"))
 		{
 			DialogueManager.Instance.currentDialogue = this.dialogue;
@@ -54,10 +58,17 @@ public class NPC : MonoBehaviour, Interactable
 	private void HandleDialogueFinish()
 	{
 		GameManager.Instance.IncreaseTempoAtual(this.tempoNecessario);
+		if (this.disappearAfterInteraction)
+		{
+			this.gameObject.SetActive(false);
+		}
+		hasInteracted = true;
+		playerInRange = false;
 	}
 
 	public void Interact()
 	{
+		if (hasInteracted) return;
 		DialogueManager.Instance.StartDialogue(this.dialogue);
 	}
 }

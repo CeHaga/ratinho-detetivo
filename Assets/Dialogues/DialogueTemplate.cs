@@ -19,5 +19,6 @@ public class DialogueTemplate : ScriptableObject
 	[Header("Diary Entry")]
 	[SerializeField] public bool hasDiaryEntry;
 	[SerializeField] public string diaryEntryName;
+	[SerializeField] public DiaryEntryType diaryEntryType;
 	[SerializeField] public string diaryEntryHint;
 }

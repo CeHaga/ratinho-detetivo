@@ -75,7 +75,7 @@ public sealed class DialogueManager : MonoBehaviour
 				currentDialogue.diaryEntryName,
 				currentDialogue.texto,
 				currentDialogue.diaryEntryHint,
-				DiaryEntryType.DIALOG
+				currentDialogue.diaryEntryType
 			);
 			OnDiaryEntryAdded.Invoke(entry);
 		}

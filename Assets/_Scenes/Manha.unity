@@ -10933,6 +10933,10 @@ PrefabInstance:
       value: 2.32
       objectReference: {fileID: 0}
     - target: {fileID: 1835323168, guid: 8f9068660c880264b858ee707dd43f04, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a625ada65ac1a643ac2eab047112d6b, type: 2}
+    - target: {fileID: 1835323168, guid: 8f9068660c880264b858ee707dd43f04, type: 3}
       propertyPath: disappearAfterInteraction
       value: 1
       objectReference: {fileID: 0}

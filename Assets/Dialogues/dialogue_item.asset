@@ -18,4 +18,5 @@ MonoBehaviour:
   opcoes: []
   hasDiaryEntry: 1
   diaryEntryName: Nome Item
+  diaryEntryType: 1
   diaryEntryHint: Encontrado no quarto

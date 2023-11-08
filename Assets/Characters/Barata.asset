@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Barata
   m_EditorClassIdentifier: 
   Nome: Barato
-  Avatar: {fileID: 21300000, guid: 6159181e859d9ed478216b55ba5a4e93, type: 3}
+  Avatar: {fileID: 21300000, guid: e3aa3a4226092c347a8ac4ab7e1b2c98, type: 3}
   Bio: Gosta de malhar

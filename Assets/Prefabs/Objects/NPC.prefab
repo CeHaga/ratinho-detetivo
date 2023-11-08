@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513427518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0.79, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5600181874545262005}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -1328695815
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb02048c4349cfe4598606275b82466a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed9267fb530d69c418546209bb60b389, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -271,3 +271,4 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 173ef3854192e2841b1b04f40ff34451, type: 2}
   tempoNecessario: 1
   visualCue: {fileID: 513427518}
+  disappearAfterInteraction: 0

@@ -2086,8 +2086,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3127417987846076934, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
       propertyPath: m_fontSize
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3127417987846076934, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4027c2f3b27974846841b18dc09f684f, type: 2}
     - target: {fileID: 3127417987846076934, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
       propertyPath: m_fontSizeMax
       value: 12
@@ -2096,6 +2100,10 @@ PrefabInstance:
       propertyPath: m_fontSizeMin
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3127417987846076934, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -9059581916519182331, guid: 4027c2f3b27974846841b18dc09f684f, type: 2}
     - target: {fileID: 3127417987846076934, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
       propertyPath: m_enableAutoSizing
       value: 1
@@ -2429,8 +2437,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Eu sou o Rato
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 716a7ae6db7d49d4caeef1cf7c2c3365, type: 2}
-  m_sharedMaterial: {fileID: -1176148685734103582, guid: 716a7ae6db7d49d4caeef1cf7c2c3365, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4027c2f3b27974846841b18dc09f684f, type: 2}
+  m_sharedMaterial: {fileID: -9059581916519182331, guid: 4027c2f3b27974846841b18dc09f684f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6382,7 +6390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 513427519, guid: 8f9068660c880264b858ee707dd43f04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7
+      value: 4.4
       objectReference: {fileID: 0}
     - target: {fileID: 3453026072527020017, guid: 8f9068660c880264b858ee707dd43f04, type: 3}
       propertyPath: m_Size.x
@@ -6764,8 +6772,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Eu sou o Rato
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 716a7ae6db7d49d4caeef1cf7c2c3365, type: 2}
-  m_sharedMaterial: {fileID: -1176148685734103582, guid: 716a7ae6db7d49d4caeef1cf7c2c3365, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4027c2f3b27974846841b18dc09f684f, type: 2}
+  m_sharedMaterial: {fileID: -9059581916519182331, guid: 4027c2f3b27974846841b18dc09f684f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

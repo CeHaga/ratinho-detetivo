@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: example_A_001
   m_EditorClassIdentifier: 
   personagem: {fileID: 11400000, guid: bedb83397cf098147acf50cd1aec5936, type: 2}
-  texto: Ola, eu sou o Barato!
+  texto: "Ol\xE1, eu sou o Barato!"
   proximoDialogo: {fileID: 11400000, guid: 592d17d962215644eb376b370d78df66, type: 2}
   opcoes: []
   hasDiaryEntry: 1
   diaryEntryName: "Introdu\xE7\xE3o Barato"
+  diaryEntryType: 0
   diaryEntryHint: "Ser\xE1 que esse \xE9 mesmo seu nome?"

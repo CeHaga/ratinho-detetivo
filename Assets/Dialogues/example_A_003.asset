@@ -18,5 +18,6 @@ MonoBehaviour:
   proximoDialogo: {fileID: 0}
   opcoes: []
   hasDiaryEntry: 1
-  diaryEntryName: "Localiza\xE7\xE3o Barata"
+  diaryEntryName: "Localiza\xE7\xE3o Barato"
+  diaryEntryType: 0
   diaryEntryHint: "Ent\xE3o sempre que quiser voltar s\xF3 procurar naquela \xE1rvore"

@@ -2188,6 +2188,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 4317083693147715483, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4027c2f3b27974846841b18dc09f684f, type: 2}
+    - target: {fileID: 4317083693147715483, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -9059581916519182331, guid: 4027c2f3b27974846841b18dc09f684f, type: 2}
     - target: {fileID: 5315463149178912033, guid: 0841368c6cf3ba94f883236fe14db513, type: 3}
       propertyPath: m_Sprite
       value: 

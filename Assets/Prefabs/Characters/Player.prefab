@@ -134,9 +134,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -607215759
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2784460757879115480, guid: 4ae3f89cf0e7dd748a09d33a1c3109dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -333,3 +333,9 @@ MonoBehaviour:
   interactableTags:
   - NPC
   playerInput: {fileID: 0}
+  idleFrontAnimation: {fileID: 0}
+  idleBackAnimation: {fileID: 0}
+  idleSideAnimation: {fileID: 0}
+  walkingFrontAnimation: {fileID: 0}
+  walkingBackAnimation: {fileID: 0}
+  walkingSideAnimation: {fileID: 0}

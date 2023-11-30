@@ -4477,7 +4477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fases:
   - cena: Manha
-    tempoTotal: 3
+    tempoTotal: 2
   - cena: Tarde
     tempoTotal: 4
   - cena: Noite

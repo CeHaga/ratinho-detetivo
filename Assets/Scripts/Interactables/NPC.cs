@@ -57,7 +57,7 @@ public class NPC : MonoBehaviour, Interactable
 
 	private void HandleDialogueFinish()
 	{
-		GameManager.Instance.IncreaseTempoAtual(this.tempoNecessario);
+		TimeManager.Instance.IncreaseTempoAtual(this.tempoNecessario);
 		if (this.disappearAfterInteraction)
 		{
 			this.gameObject.SetActive(false);

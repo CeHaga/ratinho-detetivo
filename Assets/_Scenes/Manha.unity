@@ -4477,7 +4477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fases:
   - cena: Manha
-    tempoTotal: 2
+    tempoTotal: 3
   - cena: Tarde
     tempoTotal: 4
   - cena: Noite
@@ -4485,7 +4485,7 @@ MonoBehaviour:
   finalScene: Tribunal
   timePanel: {fileID: 581211553}
   clockCenter: {fileID: 2105616725}
-  clockRadius: 50
+  clockRadius: 54
   timeCounterPanel: {fileID: 1987583357}
   timeCounterPrefab: {fileID: 2840677016147480144, guid: c6e3a491af0947240ba384c42a3010b8, type: 3}
 --- !u!114 &617879258

@@ -80,6 +80,12 @@ public sealed class TimeManager : MonoBehaviour
 		Debug.Log("IncreaseTempoAtual");
 		currentTime += value;
 
+		int maxObjects = Mathf.Min(value, timeCounterPanel.childCount);
+		for (int i = 0; i < maxObjects; i++)
+		{
+			Destroy(timeCounterPanel.GetChild(i).gameObject);
+		}
+
 		if (currentTime >= this.fases[currentSceneIndex].tempoTotal)
 		{
 			currentTime = 0;
@@ -101,13 +107,12 @@ public sealed class TimeManager : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 
-		float offset = 90f / (totalTime - 1);
+		float offset = 150f / (totalTime + 1);
 		for (int i = 0; i < totalTime; i++)
 		{
 			RectTransform timeCounter = Instantiate(timeCounterPrefab, timeCounterPanel);
-			float x = -Mathf.Sin(i * offset * Mathf.Deg2Rad) * clockRadius;
-			float y = Mathf.Cos(i * offset * Mathf.Deg2Rad) * clockRadius;
-			// timeCounter.anchoredPosition = new Vector2(x, y);
+			float x = -Mathf.Sin((i + 1) * offset * Mathf.Deg2Rad - Mathf.PI / 6) * clockRadius;
+			float y = Mathf.Cos((i + 1) * offset * Mathf.Deg2Rad - Mathf.PI / 6) * clockRadius;
 			timeCounter.position = new Vector2(x, y) + (Vector2)clockCenter.position;
 			Debug.Log("x: " + x + " y: " + y);
 			timeCounter.anchorMin = timeCounter.anchorMax = timeCounter.pivot = new Vector2(0.5f, 0.5f);
